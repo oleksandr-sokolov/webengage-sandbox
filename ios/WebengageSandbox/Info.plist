@@ -66,7 +66,7 @@
 	<string>82617aa5</string>
 	<key>WEGLogLevel</key>
 	<string>VERBOSE</string>
-	<key>WEGAlternateAppSupport</key>
-	<false/>
+	<key>WEGManualIntegration</key>
+	<true/>
 </dict>
 </plist>

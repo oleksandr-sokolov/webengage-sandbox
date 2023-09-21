@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
 
 #import <WebEngage/WebEngage.h>
 
@@ -12,8 +13,24 @@
   self.moduleName = @"WebengageSandbox";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
+
   self.initialProps = @{};
+
+  if (@available(iOS 10.0, *)) {
+    [UNUserNotificationCenter currentNotificationCenter].delegate = (id<UNUserNotificationCenterDelegate>) self;
+  }
+
+  self.bridge = [WEGWebEngageBridge new];
+    RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self.bridge launchOptions:launchOptions];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"WebengageSandbox" initialProperties:nil];
+
+
   [[WebEngage sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+
+  [WebEngage sharedInstance].pushNotificationDelegate = self.bridge;
+  [[WebEngage sharedInstance] application:application
+            didFinishLaunchingWithOptions:launchOptions notificationDelegate:self.bridge];
+
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
@@ -35,6 +52,32 @@
 - (BOOL)concurrentRootEnabled
 {
   return true;
+}
+
+
+//
+//
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    
+    NSLog(@"center: %@, notification: %@", center, notification);
+    
+    [WEGManualIntegration userNotificationCenter:center willPresentNotification:notification];
+    
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionBadge);
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)(void))completionHandler {
+    
+    NSLog(@"center: %@, response: %@", center, response);
+    
+    [WEGManualIntegration userNotificationCenter:center didReceiveNotificationResponse:response];
+    
+    completionHandler();
 }
 
 @end
