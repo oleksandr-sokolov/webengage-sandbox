@@ -43,6 +43,11 @@ target 'WebengageSandbox' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  #
+  # Webengage
+  # pod 'WebEngage'
+  pod 'react-native-webengage', :path => '../node_modules/react-native-webengage'
+
   target 'WebengageSandboxTests' do
     inherit! :complete
     # Pods for testing

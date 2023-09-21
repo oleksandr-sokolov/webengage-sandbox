@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {logWebEngageEvent, setWebEngageUserData} from './webengage-logger';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -72,6 +74,8 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        <Button onPress={logWebEngageEvent} title="Log WebEngage Event" />
+        <Button onPress={setWebEngageUserData} title="Log User Data" />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

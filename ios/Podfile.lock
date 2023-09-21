@@ -329,6 +329,9 @@ PODS:
   - React-jsinspector (0.71.12)
   - React-logger (0.71.12):
     - glog
+  - react-native-webengage (1.3.0):
+    - React-Core
+    - WebEngage
   - React-perflogger (0.71.12)
   - React-RCTActionSheet (0.71.12):
     - React-Core/RCTActionSheetHeaders (= 0.71.12)
@@ -414,6 +417,7 @@ PODS:
     - React-logger (= 0.71.12)
     - React-perflogger (= 0.71.12)
   - SocketRocket (0.6.1)
+  - WebEngage (6.4.2)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -464,6 +468,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-webengage (from `../node_modules/react-native-webengage`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -495,6 +500,7 @@ SPEC REPOS:
     - libevent
     - OpenSSL-Universal
     - SocketRocket
+    - WebEngage
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -538,6 +544,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-webengage:
+    :path: "../node_modules/react-native-webengage"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -601,6 +609,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 509cd947c28834614808ce056ee8eb700a0662aa
   React-jsinspector: ec4dcbfb1f4e72f04f826a0301eceee5fa7ca540
   React-logger: 35538accacf2583693fbc3ee8b53e69a1776fcee
+  react-native-webengage: 562d69289d1819e5fbe849dabbff5f9a05472ec7
   React-perflogger: 75b0e25075c67565a830985f3c373e2eae5389e0
   React-RCTActionSheet: a0c3e916b327e297d124d9ebe8b0c721840ee04d
   React-RCTAnimation: 3da7025801d7bf0f8cfd94574d6278d5b82a8b88
@@ -615,9 +624,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7902246857a4ead4166869e6c42d4df329ff721d
   ReactCommon: a6d1c76b9e10b439e41db225263341240e1cda9f
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
+  WebEngage: d2ec706c7bdb782f030df23e1978412381a047ea
   Yoga: 39310a10944fc864a7550700de349183450f8aaa
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f453a72f8fd0b841bf886e5e820e45998f910994
+PODFILE CHECKSUM: bcfebdb9b8e910bb444b05bdd3ba6320b83ecca7
 
 COCOAPODS: 1.12.1
