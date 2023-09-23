@@ -24,15 +24,12 @@
     RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self.bridge launchOptions:launchOptions];
     RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"WebengageSandbox" initialProperties:nil];
 
-
-  [[WebEngage sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-
   [WebEngage sharedInstance].pushNotificationDelegate = self.bridge;
   [[WebEngage sharedInstance] application:application
             didFinishLaunchingWithOptions:launchOptions notificationDelegate:self.bridge];
 
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
